@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { PenSquare, Search, LogOut, Shield, ChevronDown } from "lucide-react";
+import { PenSquare, Search, LogOut, Shield, ChevronDown, LayoutDashboard } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { isLoggedIn, removeToken } from "@/lib/auth";
 import { AnimatePresence, motion } from "framer-motion";
@@ -70,9 +70,17 @@ export function NavActions() {
                 className="absolute right-0 top-full mt-2 w-48 glass border border-white/10 rounded-xl overflow-hidden shadow-2xl z-50"
               >
                 <Link
+                  href="/admin"
+                  onClick={() => setMenuOpen(false)}
+                  className="flex items-center gap-3 px-4 py-3 text-secondary hover:text-primary hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm border-b border-black/5 dark:border-white/5"
+                >
+                  <Shield size={15} className="text-emerald-400" />
+                  Dashboard
+                </Link>
+                <Link
                   href="/admin/create"
                   onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-3 px-4 py-3 text-white/70 hover:text-white hover:bg-white/5 transition-colors text-sm border-b border-white/5"
+                  className="flex items-center gap-3 px-4 py-3 text-secondary hover:text-primary hover:bg-black/5 dark:hover:bg-white/5 transition-colors text-sm border-b border-black/5 dark:border-white/5"
                 >
                   <PenSquare size={15} className="text-emerald-400" />
                   Nouvel article

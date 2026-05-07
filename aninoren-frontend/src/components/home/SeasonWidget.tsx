@@ -20,7 +20,7 @@ export async function SeasonWidget() {
     <FadeUp>
       <section className="mt-16">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold text-white">
+          <h2 className="text-2xl font-bold text-primary">
             Saison en cours
             <span className="ml-2 text-amber-400">✦</span>
           </h2>
@@ -66,16 +66,16 @@ export async function SeasonWidget() {
 
                 {/* Titre + genres */}
                 <div className="p-2.5">
-                  <p className="text-white text-xs font-semibold leading-tight line-clamp-2 group-hover:text-emerald-400 transition-colors">
+                  <p className="text-primary text-xs font-semibold leading-tight line-clamp-2 group-hover:text-emerald-400 transition-colors">
                     {anime.titre}
                   </p>
                   {anime.genres.length > 0 && (
-                    <p className="text-white/30 text-xs mt-1 truncate">
+                    <p className="text-muted text-xs mt-1 truncate">
                       {anime.genres.join(" · ")}
                     </p>
                   )}
                   {anime.episodes && (
-                    <p className="text-white/20 text-xs mt-0.5">
+                    <p className="text-muted text-xs mt-0.5">
                       {anime.episodes} éps
                     </p>
                   )}

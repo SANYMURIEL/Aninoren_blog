@@ -37,7 +37,7 @@ export function SearchPageClient() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Rechercher un anime... (ex: Naruto, One Piece)"
-          className="w-full glass border border-white/10 rounded-xl pl-5 pr-5 py-4 text-white text-lg placeholder:text-white/30 focus:outline-none focus:border-emerald-500/50 transition-all"
+          className="w-full input-base rounded-xl pl-5 pr-5 py-4 text-lg placeholder:text-muted focus:outline-none transition-all"
         />
       </div>
 
@@ -64,7 +64,7 @@ export function SearchPageClient() {
 
                 {/* Infos */}
                 <div className="flex flex-col gap-1.5 flex-1 min-w-0">
-                  <h3 className="text-white font-semibold text-sm leading-tight line-clamp-2">
+                  <h3 className="text-primary font-semibold text-sm leading-tight line-clamp-2">
                     {anime.titre}
                   </h3>
 
@@ -95,14 +95,14 @@ export function SearchPageClient() {
       )}
 
       {!loading && query.length >= 2 && results.length === 0 && (
-        <div className="text-center py-16 text-white/30">
+        <div className="text-center py-16 text-muted">
           <BookOpen size={40} className="mx-auto mb-3 opacity-30" />
           <p>Aucun anime trouvé pour &quot;{query}&quot;</p>
         </div>
       )}
 
       {!query && (
-        <div className="text-center py-16 text-white/20">
+        <div className="text-center py-16 text-muted">
           <p className="text-5xl mb-4">🔍</p>
           <p>Tape au moins 2 caractères pour lancer la recherche</p>
         </div>

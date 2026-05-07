@@ -32,6 +32,23 @@ export async function createPost(
   return res.json();
 }
 
+export async function updatePost(
+  id: string,
+  data: { titre?: string; contenu?: string; id_anime_jikan?: number; anime_titre?: string; image_url?: string | null },
+  token: string
+): Promise<Post> {
+  const res = await fetch(`${API_URL}/posts/${id}`, {
+    method: "PATCH",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || "Erreur lors de la mise à jour");
+  }
+  return res.json();
+}
+
 export async function deletePost(id: string, token: string): Promise<void> {
   const res = await fetch(`${API_URL}/posts/${id}`, {
     method: "DELETE",

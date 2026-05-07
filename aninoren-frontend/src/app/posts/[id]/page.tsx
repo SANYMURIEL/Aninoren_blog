@@ -46,7 +46,7 @@ export default async function PostPage({ params }: { params: Promise<{ id: strin
       <main className="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 
         {/* Retour */}
-        <Link href="/" className="inline-flex items-center gap-2 text-white/40 hover:text-white text-sm mb-8 transition-colors">
+        <Link href="/" className="inline-flex items-center gap-2 text-secondary hover:text-primary text-sm mb-8 transition-colors">
           <ArrowLeft size={16} /> Retour
         </Link>
 
@@ -62,12 +62,12 @@ export default async function PostPage({ params }: { params: Promise<{ id: strin
           {/* Header */}
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <Badge variant="emerald">{post.anime_titre}</Badge>
-            <span className="flex items-center gap-1 text-white/30 text-xs">
+            <span className="flex items-center gap-1 text-muted text-xs">
               <Calendar size={12} /> {date}
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-4xl font-black text-white leading-tight mb-8">
+          <h1 className="text-3xl sm:text-4xl font-black text-primary leading-tight mb-8">
             {post.titre}
           </h1>
 
@@ -75,7 +75,7 @@ export default async function PostPage({ params }: { params: Promise<{ id: strin
           <div className="prose prose-invert max-w-none">
             {post.contenu.split("\n").map((paragraph, i) =>
               paragraph.trim() ? (
-                <p key={i} className="text-white/70 leading-relaxed mb-4 text-base">
+                <p key={i} className="text-secondary leading-relaxed mb-4 text-base">
                   {paragraph}
                 </p>
               ) : <br key={i} />

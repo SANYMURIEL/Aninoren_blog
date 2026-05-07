@@ -55,12 +55,12 @@ export function BentoGrid({ posts }: BentoGridProps) {
           </div>
           <div className="flex flex-col gap-3 mt-auto">
             <div className="flex justify-between items-center">
-              <span className="text-white/50 text-sm">Articles</span>
+              <span className="text-secondary text-sm">Articles</span>
               <span className="text-emerald-400 font-bold text-2xl">{posts.length}</span>
             </div>
-            <div className="w-full h-px bg-white/5" />
+            <div className="w-full h-px bg-black/5 dark:bg-white/5" />
             <div className="flex justify-between items-center">
-              <span className="text-white/50 text-sm">Animes couverts</span>
+              <span className="text-secondary text-sm">Animes couverts</span>
               <span className="text-amber-400 font-bold text-2xl">
                 {new Set(posts.map((p) => p.id_anime_jikan)).size}
               </span>
@@ -83,7 +83,7 @@ export function BentoGrid({ posts }: BentoGridProps) {
             <Sparkles size={16} className="text-emerald-400" />
             <span className="text-white/60 text-xs uppercase tracking-wider">À propos</span>
           </div>
-          <p className="text-white/50 text-sm leading-relaxed">
+          <p className="text-secondary text-sm leading-relaxed">
             Un blog passionné dédié à l&apos;univers des animes. Analyses, avis et découvertes.
           </p>
           <div className="flex flex-wrap gap-1 mt-auto">

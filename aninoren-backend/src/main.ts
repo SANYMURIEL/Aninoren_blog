@@ -7,8 +7,10 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   // CORS pour le frontend Next.js
+  // On retire le slash final s'il est présent pour éviter les erreurs CORS
+  const frontendUrl = (process.env.FRONTEND_URL || 'http://localhost:3001').replace(/\/$/, '');
   app.enableCors({
-    origin: process.env.FRONTEND_URL || 'http://localhost:3001',
+    origin: frontendUrl,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     credentials: true,
   });

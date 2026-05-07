@@ -22,14 +22,14 @@ export default async function PostsPage() {
       <Navbar />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-black text-white mb-2">
+          <h1 className="text-3xl font-black text-primary mb-2">
             Tous les <span className="text-gradient">articles</span>
           </h1>
-          <p className="text-white/40">{posts.length} article{posts.length > 1 ? "s" : ""} publiés</p>
+          <p className="text-muted">{posts.length} article{posts.length > 1 ? "s" : ""} publiés</p>
         </div>
 
         {posts.length === 0 ? (
-          <div className="text-center py-32 text-white/30">
+          <div className="text-center py-32 text-muted">
             <p className="text-5xl mb-4">📭</p>
             <p>Aucun article pour le moment</p>
           </div>

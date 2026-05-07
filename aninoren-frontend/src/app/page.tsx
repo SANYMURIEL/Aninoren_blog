@@ -23,10 +23,10 @@ export default async function HomePage() {
         {/* Articles */}
         <section>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-white">
+            <h2 className="text-2xl font-bold text-primary">
               Derniers articles <span className="text-emerald-400">✦</span>
             </h2>
-            <span className="text-white/30 text-sm">
+            <span className="text-muted text-sm">
               {posts.length} article{posts.length > 1 ? "s" : ""}
             </span>
           </div>
@@ -38,7 +38,7 @@ export default async function HomePage() {
 
       </main>
 
-      <footer className="border-t border-white/5 py-8 text-center text-white/20 text-sm">
+      <footer className="border-t border-black/5 dark:border-white/5 py-8 text-center text-muted text-sm">
         <p>AniNoren © {new Date().getFullYear()} — Fait avec ❤️ et beaucoup d&apos;anime</p>
       </footer>
     </div>

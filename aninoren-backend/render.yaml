@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: aninoren-backend
+    runtime: docker
+    rootDir: .
+    dockerfilePath: ./Dockerfile
+
+    # Variables d'environnement
+    # sync: false = à saisir manuellement dans le dashboard Render (jamais dans le code)
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: PORT
+        value: 3000
+
+      # MongoDB Atlas — à remplir dans le dashboard Render
+      - key: MONGODB_URI
+        sync: false
+
+      # JWT — à remplir dans le dashboard Render
+      - key: JWT_SECRET
+        sync: false
+
+      # Cloudinary — à remplir dans le dashboard Render
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+
+      # URL du frontend Vercel — à mettre à jour après déploiement Vercel
+      - key: FRONTEND_URL
+        value: https://aninoren.vercel.app
+
+      # Jikan API (publique, pas de clé)
+      - key: JIKAN_API_URL
+        value: https://api.jikan.moe/v4

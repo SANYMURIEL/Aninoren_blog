@@ -1,0 +1,90 @@
+name: CI — Aninoren
+
+# Se déclenche à chaque push sur main et sur chaque Pull Request
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # ─────────────────────────────────────────────────────────
+  # JOB 1 : Vérification du Backend (NestJS)
+  # ─────────────────────────────────────────────────────────
+  backend:
+    name: Backend — Lint, Test, Build
+    runs-on: ubuntu-latest
+
+    # Toutes les commandes s'exécutent dans le dossier backend
+    defaults:
+      run:
+        working-directory: aninoren-backend
+
+    steps:
+      # 1. Récupère le code depuis GitHub
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # 2. Installe Node.js 20 avec cache npm
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: aninoren-backend/package-lock.json
+
+      # 3. Installe les dépendances (npm ci = installation propre et reproductible)
+      - name: Install dependencies
+        run: npm ci
+
+      # 4. Vérifie le style du code
+      - name: Lint
+        run: npm run lint
+
+      # 5. Lance les tests unitaires
+      - name: TestsÉtape 0  → Vérifier GitHub
+Étape 1  → Créer les fichiers de config (je le fais pour toi)
+Étape 2  → Déployer le backend sur Render
+Étape 3  → Déployer le frontend sur Vercel
+Étape 4  → Connecter les deux ensemble
+Étape 5  → Tester que tout fonctionne
+
+        run: npm test
+
+      # 6. Compile TypeScript → JavaScript
+      - name: Build
+        run: npm run build
+
+  # ─────────────────────────────────────────────────────────
+  # JOB 2 : Vérification du Frontend (Next.js)
+  # ─────────────────────────────────────────────────────────
+  frontend:
+    name: Frontend — Lint, Build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: aninoren-frontend
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: aninoren-frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      # Build avec l'URL du backend injectée depuis les secrets GitHub
+      - name: Build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_API_URL: ${{ secrets.NEXT_PUBLIC_API_URL }}

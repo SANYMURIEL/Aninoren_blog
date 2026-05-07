@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* ════════════════════════════════════════════
+   THÈME DARK (défaut)
+════════════════════════════════════════════ */
+:root,
+html.dark {
+  --bg-base: #0d0d0d;
+  --bg-gradient: radial-gradient(ellipse at 20% 50%, rgba(16,185,129,0.15) 0%, transparent 50%),
+                 radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.10) 0%, transparent 50%),
+                 #0d0d0d;
+
+  --fg-primary: #f0f0f0;
+  --fg-secondary: rgba(240,240,240,0.6);
+  --fg-muted: rgba(240,240,240,0.3);
+
+  --glass-bg: rgba(255,255,255,0.05);
+  --glass-border: rgba(255,255,255,0.10);
+  --glass-hover: rgba(255,255,255,0.08);
+
+  --card-bg: rgba(255,255,255,0.04);
+  --card-border: rgba(255,255,255,0.08);
+
+  --input-bg: rgba(255,255,255,0.05);
+  --input-border: rgba(255,255,255,0.10);
+  --input-focus: rgba(16,185,129,0.50);
+
+  --scrollbar-track: #1a1a1a;
+  --scrollbar-thumb: #059669;
+
+  --navbar-bg: rgba(13,13,13,0.80);
+  --navbar-border: rgba(255,255,255,0.05);
+
+  --emerald: #10b981;
+  --emerald-light: #34d399;
+  --emerald-dark: #059669;
+  --saffron: #f59e0b;
+  --saffron-light: #fbbf24;
+}
+
+/* ════════════════════════════════════════════
+   THÈME LIGHT
+════════════════════════════════════════════ */
+html.light {
+  --bg-base: #f5f5f0;
+  --bg-gradient: radial-gradient(ellipse at 20% 50%, rgba(16,185,129,0.08) 0%, transparent 50%),
+                 radial-gradient(ellipse at 80% 20%, rgba(245,158,11,0.06) 0%, transparent 50%),
+                 #f5f5f0;
+
+  --fg-primary: #111111;
+  --fg-secondary: rgba(17,17,17,0.65);
+  --fg-muted: rgba(17,17,17,0.35);
+
+  --glass-bg: rgba(255,255,255,0.70);
+  --glass-border: rgba(0,0,0,0.08);
+  --glass-hover: rgba(0,0,0,0.04);
+
+  --card-bg: rgba(255,255,255,0.80);
+  --card-border: rgba(0,0,0,0.07);
+
+  --input-bg: rgba(255,255,255,0.90);
+  --input-border: rgba(0,0,0,0.12);
+  --input-focus: rgba(16,185,129,0.40);
+
+  --scrollbar-track: #e5e5e0;
+  --scrollbar-thumb: #10b981;
+
+  --navbar-bg: rgba(245,245,240,0.85);
+  --navbar-border: rgba(0,0,0,0.06);
+
+  --emerald: #059669;
+  --emerald-light: #10b981;
+  --emerald-dark: #047857;
+  --saffron: #d97706;
+  --saffron-light: #f59e0b;
+}
+
+/* ════════════════════════════════════════════
+   BASE
+════════════════════════════════════════════ */
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-base);
+  color: var(--fg-primary);
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ════════════════════════════════════════════
+   UTILITAIRES
+════════════════════════════════════════════ */
+
+/* Fond gradient animé */
+.bg-anime-gradient {
+  background: var(--bg-gradient);
+  min-height: 100vh;
+}
+
+/* Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Navbar sticky */
+.navbar-glass {
+  background: var(--navbar-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--navbar-border);
+}
+
+/* Cards */
+.card-base {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Inputs */
+.input-base {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--fg-primary);
+}
+.input-base::placeholder { color: var(--fg-muted); }
+.input-base:focus { border-color: var(--input-focus); outline: none; }
+
+/* Textes */
+.text-primary   { color: var(--fg-primary); }
+.text-secondary { color: var(--fg-secondary); }
+.text-muted     { color: var(--fg-muted); }
+
+/* Gradient texte */
+.text-gradient {
+  background: linear-gradient(135deg, var(--emerald), var(--saffron));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glows */
+.glow-emerald { box-shadow: 0 0 20px rgba(16,185,129,0.30); }
+.glow-saffron { box-shadow: 0 0 20px rgba(245,158,11,0.30); }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 3px; }
